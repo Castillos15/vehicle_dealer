@@ -1,0 +1,6 @@
+-- Locations to start deliveries ( x, y, z, vehX, vehY, vehZ, vehAngX, vehAngY, vehAngZ)
+Location(-6480.99, 208.98, -3335.97, -6480.99, 208.98, -3335.97, 0, 0, 0)
+
+-- MISSIONS ( name, reward ( money ), time to arrive ( in seconds ), vehicle model, x, y, z )
+Mission(Test Mission, 5000, 120, 1, -6479, 208, -3354)
+Mission(Test Mission 2, 50000, 50, 2, -6409, 208, -3354)
