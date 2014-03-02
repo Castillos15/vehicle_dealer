@@ -1,4 +1,4 @@
-This script consists of delivering vehicles in a determinated amount of time.
+This script consists of delivering vehicles in a determinated amount of time to a specified location.
 Once you choose a mission, it'll create a minimap green flashing rectangle
 to which you must drive the vehicle, if you arrive the destination with
 the vehicle you was given for the mission, you'll be given a money reward.
