@@ -8,7 +8,6 @@ local textBoxTypes =
 		[ "multiline" ] = TextBoxMultiline,
 		[ "password" ] = PasswordTextBox
 	}
-local protected = { }
 
 function GUI:Window ( title, pos, size )
 	local window = Window.Create ( )
@@ -19,15 +18,11 @@ function GUI:Window ( title, pos, size )
 	return window
 end
 
-function GUI:Button ( text, pos, size, parent, id )
+function GUI:Button ( text, pos, size, parent )
 	local button = Button.Create ( )
 	button:SetText ( text )
 	button:SetPositionRel ( pos )
 	button:SetSizeRel ( size )
-	if ( id ) then
-		button:SetDataString ( "id", id )
-		table.insert ( protected, button )
-	end
 	if ( parent ) then
 		button:SetParent ( parent )
 	end
@@ -169,8 +164,6 @@ function GUI:TabControl ( tabs, pos, size, parent )
 				addedTabs [ tabName ].base:SetParent ( parent )
 			end
 			addedTabs [ tabName ].page = tabControl:AddPage ( tab, addedTabs [ tabName ].base )
-			addedTabs [ tabName ].page:SetDataString ( "id", "general.tab_".. tab:lower ( ) )
-			table.insert ( protected, addedTabs [ tabName ].page )
 		end
 	end
 
@@ -252,8 +245,4 @@ function GUI:Center ( guiElement )
 	local width, height = table.unpack ( tostring ( size ):split ( "," ) )
 	local size = Vector2 ( ( ( sx / sx ) / 2 - width / 2 ), ( ( sy / sy ) / 2 - height / 2 ) )
 	guiElement:SetPositionRel ( size )
-end
-
-function GUI:GetAllProtected ( )
-	return protected
 end
