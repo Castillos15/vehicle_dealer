@@ -92,7 +92,12 @@ function Dealer:render ( )
 				Render:DrawText ( Vector2 ( ( 27 / 1366 ) * self.sx, ( 240 / 768 ) * self.sy ), "Press 'H' to show GUI", Color ( 255, 255, 255 ) )
 			end
 		else
-			self.hitLocation = nil
+			if ( self.hitLocation ) then
+				local dist = self.locations [ self.hitLocation ].position:Distance2D ( LocalPlayer:GetPosition ( ) )
+				if ( dist > 4 ) then
+					self.hitLocation = nil
+				end
+			end
 		end
 	end
 end
